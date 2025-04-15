@@ -1,40 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+<script language="javascript">
+function validate()
+{
+var u=document.f1.t1.value;
+var p=document.f1.p1.value;
+if((u=="MVSREC")&&(p=="IOT"))
+{
+window.alert("Login successfull");
+}
+else{
+window.alert("Login failed");
+}
+}
+</script>
 </head>
 <body>
-
-<h2>Login</h2>
-<form id="loginForm">
-    <input type="text" id="username" placeholder="Username" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-    <div id="error-message"></div>
+<form name="f1">
+<table border="5" bgcolor="pink" align="center">
+<tr><td>UserID</td>
+<td><input type="text" name="t1"></td>
+</tr>
+<tr><td>password</td>
+<td><input type="password" name="p1"></td>
+</tr>
+<tr><td><input type="button" value="LOGIN" onClick="validate()"></td>
+<td><input type="reset"value="CLEAR"></td>
+</tr>
+</table>
 </form>
-
-<script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const errorMessage = document.getElementById('error-message');
-        errorMessage.textContent = '';
-
-        if (username === '' || password === '') {
-            errorMessage.textContent = 'Both fields are required.';
-            return;
-        }
-
-        if (username === 'admin' && password === 'password') {
-            alert('Login successful!');
-        } else {
-            errorMessage.textContent = 'Invalid username or password.';
-        }
-    });
-</script>
-
 </body>
 </html>
